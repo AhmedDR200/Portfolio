@@ -24,7 +24,7 @@ const HeroContent = () => {
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">
+          <h1 className="text-[15px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
             Backend Engineer Portfolio
           </h1>
         </motion.div>
@@ -66,8 +66,8 @@ const HeroContent = () => {
         <Image
           src="/mainIconsdark.svg"
           alt="work icons"
-          height={650}
-          width={650}
+          height={900}
+          width={900}
         />
       </motion.div>
     </motion.div>

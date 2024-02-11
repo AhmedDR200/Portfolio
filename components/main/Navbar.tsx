@@ -4,46 +4,23 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-      <a
-            href="#about-me"
-            className="h-auto w-auto flex flex-row items-center rounded-full"
-          >
-            <Image
-              src="/devlant.png"
-              alt="logo"
-              width={70}
-              height={70}
-              className="cursor-pointer hover:animate-slowspin rounded-full"
-            />
+    <div className="w-full fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-4 md:px-10">
+      <div className="w-full flex flex-row items-center justify-between m-auto">
+        <a
+          href="#about-me"
+          className="h-auto w-auto flex flex-row items-center rounded-full"
+        >
+          <span className="text-[18px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
+            DEVLANT
+          </span>
+        </a>
 
-            <span className="font-bold ml-[10px] hidden md:block text-gray-300">
-              DEVLANT
-            </span>
-      </a>
-
-
-        <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-            <a href="#about-me" className="cursor-pointer">
-              About me
-            </a>
-            <a href="#skills" className="cursor-pointer">
-              Skills
-            </a>
-            <a href="#projects" className="cursor-pointer">
-              Projects
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-row gap-2 md:gap-4 md:hidden">
           {Socials.map((social) => (
             <a
               href={social.link}
-              target="_blank"  // open link in a new tab
-              rel="noopener noreferrer"  // recommended for security
+              target="_blank"
+              rel="noopener noreferrer"
               key={social.name}
             >
               <Image
@@ -54,6 +31,42 @@ const Navbar = () => {
                 className="cursor-pointer"
               />
             </a>
+          ))}
+        </div>
+
+        <div className="hidden md:flex items-center justify-between w-2/3 md:w-[500px] h-full bg-[#0300145e] px-2 md:px-4 py-1 md:py-2 rounded-full text-gray-200">
+          <a href="#about-me" className="cursor-pointer">
+            About me
+          </a>
+          <a href="#skills" className="cursor-pointer">
+            Skills
+          </a>
+          <a href="#projects" className="cursor-pointer">
+            Projects
+          </a>
+        </div>
+
+        <div className="hidden md:flex flex-row gap-2">
+          {Socials.map((social, index) => (
+            <React.Fragment key={social.name}>
+              <a
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={social.name}
+              >
+                <Image
+                  src={social.src}
+                  alt={social.name}
+                  width={30}
+                  height={30}
+                  className="cursor-pointer"
+                />
+              </a>
+              {index < Socials.length - 1 && (
+                <div className="w-2" /> // Adjust the width based on your preference
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
